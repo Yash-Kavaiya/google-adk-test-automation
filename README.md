@@ -1,57 +1,163 @@
-# ADK Test Automation
+# 🤖 ADK Test Automation Framework
 
-A comprehensive testing framework for Google's Agent Development Kit (ADK) that automates conversation flows and generates detailed reports.
+<div align="center">
 
-## 🚀 Features
+![ADK Logo](https://img.shields.io/badge/Google-ADK-4285f4?style=for-the-badge&logo=google&logoColor=white)
+![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+![Tests](https://img.shields.io/badge/tests-85%25%20passing-brightgreen?style=for-the-badge)
 
-- **Automated Conversation Testing**: Test multi-turn conversations with your ADK agents
-- **Session Management**: Automatic session creation and management
-- **Detailed Reporting**: CSV output with response times, status codes, and full responses
-- **Real-time Monitoring**: Colored console output with progress tracking
-- **Flexible Configuration**: Easy CSV-based test case management
+**A comprehensive testing framework for Google's Agent Development Kit (ADK) that automates conversation flows and generates detailed reports.**
 
-## 📊 Test Results Summary
+[🚀 Quick Start](#-setup--configuration) • [📊 Results](#-test-results-summary) • [🔧 Configuration](#-configuration) • [📈 Analytics](#-performance-metrics)
 
-| Metric | Value |
-|--------|-------|
-| **Total Tests** | 20 |
-| **Successful Tests** | 17 |
-| **Failed Tests** | 3 |
-| **Success Rate** | 85% |
-| **Average Response Time** | 2.78 seconds |
-| **Test Coverage** | Order tracking, Customer service, Payment issues, Delivery problems |
+</div>
 
-## 🏗️ Architecture
+---
+
+## ✨ Key Features
+
+<table>
+  <tr>
+    <td align="center">🤖</td>
+    <td><strong>Automated Conversation Testing</strong><br/>Test multi-turn conversations with your ADK agents seamlessly</td>
+  </tr>
+  <tr>
+    <td align="center">🔧</td>
+    <td><strong>Session Management</strong><br/>Automatic session creation, tracking, and cleanup</td>
+  </tr>
+  <tr>
+    <td align="center">📊</td>
+    <td><strong>Detailed Reporting</strong><br/>CSV output with response times, status codes, and full responses</td>
+  </tr>
+  <tr>
+    <td align="center">📺</td>
+    <td><strong>Real-time Monitoring</strong><br/>Colored console output with progress tracking and live updates</td>
+  </tr>
+  <tr>
+    <td align="center">⚙️</td>
+    <td><strong>Flexible Configuration</strong><br/>Easy CSV-based test case management and customizable endpoints</td>
+  </tr>
+  <tr>
+    <td align="center">🧹</td>
+    <td><strong>Intelligent Cleanup</strong><br/>Automatic session cleanup and log rotation for optimal performance</td>
+  </tr>
+</table>
+
+## 📊 Test Results Dashboard
+
+<div align="center">
+
+### 🎯 Performance Metrics
+
+<table>
+  <tr>
+    <th>📈 Metric</th>
+    <th>📊 Value</th>
+    <th>🎯 Status</th>
+  </tr>
+  <tr>
+    <td><strong>Total Tests</strong></td>
+    <td><code>20</code></td>
+    <td>✅ Complete</td>
+  </tr>
+  <tr>
+    <td><strong>Successful Tests</strong></td>
+    <td><code>17</code></td>
+    <td>🟢 Excellent</td>
+  </tr>
+  <tr>
+    <td><strong>Failed Tests</strong></td>
+    <td><code>3</code></td>
+    <td>🟡 Minor Issues</td>
+  </tr>
+  <tr>
+    <td><strong>Success Rate</strong></td>
+    <td><code>85%</code></td>
+    <td>🟢 Above Target</td>
+  </tr>
+  <tr>
+    <td><strong>Average Response Time</strong></td>
+    <td><code>2.78s</code></td>
+    <td>🟢 Fast</td>
+  </tr>
+  <tr>
+    <td><strong>Test Coverage</strong></td>
+    <td>Order tracking, Customer service, Payment issues, Delivery problems</td>
+    <td>✅ Comprehensive</td>
+  </tr>
+</table>
+
+### 📈 Success Rate Visualization
+
+```
+🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🟢🔴🔴🔴
+85% Success Rate (17/20 tests passed)
+```
+
+</div>
+
+## 🏗️ System Architecture
+
+### 🔄 High-Level Flow Diagram
 
 ```mermaid
-graph TB
-    A[test_automation.sh] --> B[CSV Input Parser]
-    B --> C[Session Manager]
-    C --> D[ADK API Client]
-    D --> E[http://127.0.0.1:8000]
-    
-    E --> F[Agent: test]
-    F --> G[Gemini 2.0 Flash]
-    
-    D --> H[Response Handler]
-    H --> I[CSV Logger]
-    H --> J[Console Reporter]
-    
-    I --> K[test_results.csv]
-    J --> L[automation.log]
-    
-    subgraph "Test Flow"
-        M[Load Test Cases] --> N[Create Session]
-        N --> O[Send Messages]
-        O --> P[Capture Responses]
-        P --> Q[Generate Reports]
+flowchart TB
+    subgraph "🎯 Test Automation Framework"
+        A[test_automation.sh<br/>📋 Main Controller] --> B[CSV Parser<br/>📊 Data Loader]
+        B --> C[Session Manager<br/>🔧 Session Control]
+        C --> D[API Client<br/>🌐 HTTP Handler]
     end
     
-    subgraph "ADK Components"
-        E --> R[/apps/test/users]
-        R --> S[Session API]
-        S --> T[/run_sse endpoint]
+    subgraph "🚀 ADK Server Ecosystem"
+        E[ADK Server<br/>🖥️ :8000] --> F[Agent: test<br/>🤖 Chat Agent]
+        F --> G[Gemini 2.0 Flash<br/>🧠 LLM Engine]
     end
+    
+    subgraph "📈 Output & Monitoring"
+        H[Response Handler<br/>⚡ Data Processor]
+        I[CSV Logger<br/>📝 Results Storage]
+        J[Console Reporter<br/>📺 Live Updates]
+        K[automation.log<br/>📋 Debug Logs]
+        L[test_results.csv<br/>📊 Final Report]
+    end
+    
+    D -.->|HTTP POST| E
+    E -.->|JSON Response| D
+    D --> H
+    H --> I
+    H --> J
+    I --> L
+    J --> K
+    
+    style A fill:#e1f5fe
+    style E fill:#f3e5f5
+    style H fill:#e8f5e8
+```
+
+### 🔀 Test Execution Flow
+
+```mermaid
+sequenceDiagram
+    participant 🧪 Test Script
+    participant 🔧 Session Manager
+    participant 🌐 ADK API
+    participant 🤖 Agent
+    participant 📊 Logger
+    
+    🧪 Test Script->>🔧 Session Manager: Create new session
+    🔧 Session Manager->>🌐 ADK API: POST /apps/test/users/{id}/sessions
+    🌐 ADK API-->>🔧 Session Manager: Session ID
+    
+    loop For each message
+        🧪 Test Script->>🌐 ADK API: Send message
+        🌐 ADK API->>🤖 Agent: Process message
+        🤖 Agent-->>🌐 ADK API: Generate response
+        🌐 ADK API-->>🧪 Test Script: Response + metadata
+        🧪 Test Script->>📊 Logger: Log results
+    end
+    
+    🧪 Test Script->>📊 Logger: Generate final report
 ```
 
 ## 🗂️ Project Structure
@@ -72,32 +178,75 @@ google-adk-test-automation/
     └── ...
 ```
 
-## ⚙️ Setup & Configuration
+## ⚙️ Configuration
 
-### Prerequisites
+<details>
+<summary><strong>🔧 Prerequisites & Dependencies</strong></summary>
 
-- ADK Server running on `http://127.0.0.1:8000`
-- Bash shell environment
-- Google API Key configured
+| Component | Version | Status | Install Command |
+|-----------|---------|--------|-----------------|
+| **ADK Server** | Latest | ✅ Required | `pip install google-adk` |
+| **Bash Shell** | 4.0+ | ✅ Required | Pre-installed on Unix |
+| **curl** | Any | ✅ Required | `apt-get install curl` |
+| **jq** | 1.6+ | ⚠️ Optional | `apt-get install jq` |
+| **Google API Key** | - | ✅ Required | [Get API Key](https://console.cloud.google.com/) |
 
-### Environment Setup
+</details>
 
-1. **Configure Environment Variables:**
-   ```bash
-   # In test/.env
-   GOOGLE_GENAI_USE_VERTEXAI=0
-   GOOGLE_API_KEY=your_api_key_here
-   ```
+### 🚀 Quick Setup Guide
 
-2. **Start ADK Server:**
-   ```bash
-   adk web
-   ```
+<table>
+<tr>
+<td>
 
-3. **Verify Server Status:**
-   ```bash
-   curl http://127.0.0.1:8000/docs
-   ```
+**Step 1: Environment Variables**
+```bash
+# Create test/.env
+GOOGLE_GENAI_USE_VERTEXAI=0
+GOOGLE_API_KEY=your_api_key_here
+```
+
+</td>
+<td>
+
+**Step 2: Start ADK Server**
+```bash
+adk web
+# Server starts on :8000
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Step 3: Verify Installation**
+```bash
+curl -I http://127.0.0.1:8000/docs
+# Expected: HTTP/1.1 200 OK
+```
+
+</td>
+<td>
+
+**Step 4: Run Tests**
+```bash
+chmod +x test_automation.sh
+./test_automation.sh
+```
+
+</td>
+</tr>
+</table>
+
+### 🔒 Security Configuration
+
+| Setting | Default | Recommended | Description |
+|---------|---------|-------------|-------------|
+| `GOOGLE_API_KEY` | None | Your API Key | **Never commit to git!** |
+| `ADK_HOST` | 127.0.0.1 | localhost | Local development only |
+| `ADK_PORT` | 8000 | 8000 | Default ADK port |
+| `SESSION_TIMEOUT` | 7 days | 24 hours | Session cleanup interval |
 
 ## 🚀 Usage
 
@@ -111,14 +260,44 @@ google-adk-test-automation/
 ./test_automation.sh input.csv http://localhost:8000/run_sse output.csv
 ```
 
-### Test Case Format
+### 📝 Test Case Configuration
 
-Create test cases in CSV format (`test_conversations.csv`):
+<details>
+<summary><strong>CSV Format Specification</strong></summary>
 
 ```csv
 message1,message2,message3,message4,message5
 "Hello, I want to check my order","My order ID is 12345","Can you tell me the status?","When will it be delivered?","Thank you for your help"
 "Hi, I want to check my status","My order ID is 123","Is it shipped yet?","What's the tracking number?","Perfect, thanks!"
+```
+
+**Important CSV Rules:**
+- ✅ Use double quotes for messages with commas
+- ✅ Escape internal quotes with `""`
+- ✅ Each row represents one conversation flow
+- ✅ Maximum 5 messages per conversation
+- ❌ Avoid special characters without proper escaping
+
+</details>
+
+### 🎛️ Command Line Options
+
+| Parameter | Description | Default | Example |
+|-----------|-------------|---------|---------|
+| `INPUT_CSV` | Test cases file | `test_conversations.csv` | `my_tests.csv` |
+| `API_ENDPOINT` | ADK server endpoint | `http://127.0.0.1:8000/run_sse` | Custom URL |
+| `OUTPUT_CSV` | Results file | `test_results.csv` | `results_$(date).csv` |
+
+**Usage Examples:**
+```bash
+# Default execution
+./test_automation.sh
+
+# Custom files
+./test_automation.sh custom_tests.csv http://localhost:8000/run_sse results.csv
+
+# With timestamp
+./test_automation.sh test_conversations.csv http://127.0.0.1:8000/run_sse "results_$(date +%Y%m%d_%H%M%S).csv"
 ```
 
 ## 📈 Test Results Analysis
@@ -200,29 +379,61 @@ curl -X POST http://127.0.0.1:8000/apps/test/users/u_1/sessions
 - **test_results.csv**: Detailed results with full responses
 - **sessions/*.json**: Session conversation history
 
-## 🛠️ Troubleshooting
+## 🛠️ Troubleshooting & Support
 
-### Common Issues
+### 🚨 Common Issues & Solutions
 
-| Issue | Symptoms | Solution |
-|-------|----------|----------|
-| Server Not Running | Connection refused | Run `adk web` |
-| Invalid API Key | 401 Unauthorized | Update `GOOGLE_API_KEY` in test/.env |
-| JSON Parse Error | 422 status code | Fix quote escaping in CSV |
-| Session Not Found | 404 errors | Verify session creation logic |
+<details>
+<summary><strong>🔴 Critical Issues</strong></summary>
 
-### Debug Commands
+| Issue | Symptoms | Root Cause | Solution |
+|-------|----------|------------|----------|
+| **Server Connection Failed** | `Connection refused` | ADK server not running | `adk web` then retry |
+| **API Authentication Error** | `401 Unauthorized` | Invalid/missing API key | Update `GOOGLE_API_KEY` in `test/.env` |
+| **JSON Parse Error** | `422 Unprocessable Entity` | Malformed CSV quotes | Fix quote escaping in CSV |
+| **Session Creation Failed** | `Failed to create session` | Server overload | Wait 30s and retry |
+
+</details>
+
+<details>
+<summary><strong>🟡 Performance Issues</strong></summary>
+
+| Issue | Symptoms | Optimization |
+|-------|----------|-------------|
+| **Slow Response Times** | >5s per message | Reduce concurrent tests |
+| **Memory Usage High** | System lag | Enable session cleanup |
+| **Disk Space Full** | Write errors | Clean old log files |
+| **Network Timeouts** | Timeout errors | Increase timeout values |
+
+</details>
+
+### 🔍 Diagnostic Commands
 
 ```bash
-# Check server status
-curl -I http://127.0.0.1:8000/docs
+# 🌐 Network & Server Health
+curl -I http://127.0.0.1:8000/docs                    # Server status
+curl -X GET http://127.0.0.1:8000/health             # Health check
+netstat -tlnp | grep :8000                           # Port usage
 
-# Test session creation
-curl -X POST http://127.0.0.1:8000/apps/test/users/test_user/sessions
+# 🔧 Environment Validation
+cat test/.env | grep -v "API_KEY"                     # Config check (secure)
+echo $GOOGLE_API_KEY | wc -c                          # API key length
+ls -la sessions/ | head -5                           # Session files
 
-# Validate environment
-cat test/.env
+# 📊 Log Analysis
+tail -f automation.log                               # Live log monitoring
+grep "ERROR\|FAILED" automation.log                  # Error summary
+wc -l test_results.csv                               # Result count
 ```
+
+### 📞 Getting Help
+
+| Resource | Description | Link |
+|----------|-------------|------|
+| **ADK Documentation** | Official Google ADK docs | [google.github.io/adk-docs](https://google.github.io/adk-docs/) |
+| **API Reference** | REST API endpoints | `http://127.0.0.1:8000/docs` |
+| **Community Forum** | Discussion & support | [GitHub Issues](https://github.com/google/adk/issues) |
+| **Debug Logs** | Local troubleshooting | `./automation.log` |
 
 ## 📋 Performance Metrics
 
